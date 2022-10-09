@@ -1,30 +1,32 @@
-﻿void LUDecomposition(float[,] A)    // LU分解：LとUを重ねた行列に変換
-{
-    var n = A.GetLength(0);
-    for (var k = 0; k < n; ++k)
-    {
-        var w = 1 / A[k, k];
-        for (var i = k + 1; i < n; ++i)
-        {
-            A[i, k] *= w;
-            for (var j = k + 1; j < n; ++j) A[i, j] -= A[i, k] * A[k, j];
-        }
-    }
+﻿double f (double x, double t) { // 微分方程式の右辺 ⇒ 厳密解 tanh(t)
+    return 1.0 - x * x; 
 }
 
-float[,] A = new float[,]    // 正方行列
-{ 
-    { 1, 2, 3, 0 }, 
-    { 2, 3, 1, 5 }, 
-    { 1, 3, 3, 0 }, 
-    { 4, 5, 5, 1 } 
-};
+double Euler(double x, double h, double t)  // オイラー法
+{
+    return x + h * f(x, t);
+}
 
+double ModifiedEuler(double x, double h, double t)  // 修正オイラー法
+{
+    return x + h * (f(x, t) + f(x + h * f(x, t), t + h)) / 2.0;
+}
 
-LUDecomposition(A);
-Console.Write("L = " + Environment.NewLine);
-for (int i = 0; i < A.GetLength(0); ++i) for (int j = 0; j < A.GetLength(1); ++j)
-        Console.Write((i > j ? A[i, j] : i == j ? 1 : 0).ToString("F3") + (j < A.GetLength(1) - 1 ? "\t" : Environment.NewLine));
-Console.Write(Environment.NewLine + "U = " + Environment.NewLine);
-for (int i = 0; i < A.GetLength(0); ++i) for (int j = 0; j < A.GetLength(1); ++j)
-        Console.Write((i <= j ? A[i, j] : 0).ToString("F3") + (j < A.GetLength(1) - 1 ? "\t" : Environment.NewLine));
+const double t0 = 0, t1 = 1.6;  // 定義域
+const double x0 = 0;            // 初期値
+const double h = 0.05;          // 刻み幅
+const double e = 0.001;         // 定義域拡大量(浮動小数点の誤差による終端部抜け防止)
+var methodName = new String[] { "オイラー法：", "修正オイラー法：" };
+
+for (int i = 0; i < methodName.Length; i++)
+{
+    Console.WriteLine(methodName[i]);
+    double x = x0, error = 0;
+    for (double t = t0; t <= t1 + e; t += h)
+    {
+        error = Math.Max(Math.Abs(x - Math.Tanh(t)), error);    // 厳密解tanh(t)との差
+        if (i == 0) x = Euler(x, h, t);
+        else if (i == 1) x = ModifiedEuler(x, h, t);
+    }
+    Console.WriteLine("誤差の最大値 = " + error.ToString("F10") + Environment.NewLine);
+}
