@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{9EB82FCB-B292-4A67-B145-384091284E9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planet", "ConsoleApp1\Planet.csproj", "{9EB82FCB-B292-4A67-B145-384091284E9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DifferentialEquation", "DifferentialEquation\DifferentialEquation.csproj", "{22E146B0-0B0A-42E5-9869-0E3180EB060B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimultaneousEquation", "LUDecomposition\SimultaneousEquation.csproj", "{C6B5FF12-207C-4853-83DB-FE6C123A33BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{9EB82FCB-B292-4A67-B145-384091284E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EB82FCB-B292-4A67-B145-384091284E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EB82FCB-B292-4A67-B145-384091284E9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E146B0-0B0A-42E5-9869-0E3180EB060B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E146B0-0B0A-42E5-9869-0E3180EB060B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E146B0-0B0A-42E5-9869-0E3180EB060B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E146B0-0B0A-42E5-9869-0E3180EB060B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B5FF12-207C-4853-83DB-FE6C123A33BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B5FF12-207C-4853-83DB-FE6C123A33BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B5FF12-207C-4853-83DB-FE6C123A33BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B5FF12-207C-4853-83DB-FE6C123A33BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
