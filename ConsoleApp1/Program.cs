@@ -39,10 +39,10 @@ for (int i = 0; i < fileNames.Length; i++)
 {
     var xs = new double[] { 3, 0, 0.3, 0.2 };   // (x, y, u, v)の初期値
     var sb = new System.Text.StringBuilder();
-    sb.AppendLine("t,x,y");
+    sb.AppendLine("t,x,y,E");
     for (double t = t0; t <= t1 + e; t += h)
     {
-        sb.AppendLine(t + "," + xs[0] + "," + xs[1]);
+        sb.AppendLine(t + "," + xs[0] + "," + xs[1] + "," + ((xs[2] * xs[2] + xs[3] * xs[3]) / 2.0 - Math.Pow(xs[0] * xs[0] + xs[1] * xs[1], -1.0 / 2.0)));
         xs = methods[i](xs, h, t);
     }
     File.WriteAllText(fileNames[i], sb.ToString());
