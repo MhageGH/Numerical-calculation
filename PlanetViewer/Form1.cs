@@ -12,7 +12,8 @@ namespace PlanetViewer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var filename = new String[] { "�I�C���[�@.csv", "�C���I�C���[�@.csv", "�����Q�N�b�^�@.csv" };
+            // 注) Planetプロジェクトの実行ファイルのあるフォルダに出力される以下のファイルを本プロジェクトの実行フォルダにコピーすること
+            var filename = new String[] { "オイラー法.csv", "修正オイラー法.csv", "ルンゲクッタ法.csv" };  
             for (int i = 0; i < filename.Length; i++)
             {
                 t[i] = new List<double>();
